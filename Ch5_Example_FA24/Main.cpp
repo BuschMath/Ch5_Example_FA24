@@ -10,19 +10,21 @@ int main()
 	srand(time(NULL));
 	int random = rand() % 100 + 1;
 	
-	std::cout << "Please guess the number: ";
+	std::cout << "You have three guesses. Please enter your first guess of the number: ";
 	int guess;
 	std::cin >> guess;
 
 	std::cout << "Your guess is: " << guess << std::endl;
 
-	if (guess == random)
+	if (random == guess)
 	{
 		std::cout << "Congratulations! You guessed the number!" << std::endl;
 	}
 	else
 	{
-		std::cout << "Sorry, the number was: " << random << std::endl;
+		std::cout << "Sorry, your first guess was incorrect. Please guess again."<< std::endl;
+
+
 	}
 
 	return 0;
