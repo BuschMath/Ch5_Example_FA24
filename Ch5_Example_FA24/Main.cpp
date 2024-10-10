@@ -1,30 +1,60 @@
-#include <stdlib.h>
 #include <iostream>
-#include <time.h>
+
+using namespace std;
 
 int main()
 {
-	std::cout << "Number Guessing Game" << std::endl;
+	cout << "Do you want to determine your outcome by letter or number?"; 
+	cout << "Enter l for letter or n for number.\n";
+	char test;
+	bool letter_grade;
 
-	std::cout << "Generating a random number between 1 and 100" << std::endl;
-	srand(time(NULL));
-	int random = rand() % 100 + 1;
-	
-	std::cout << "You have three guesses. Please enter your first guess of the number: ";
-	int guess;
-	std::cin >> guess;
+	cin >> test;
 
-	std::cout << "Your guess is: " << guess << std::endl;
-
-	if (random == guess)
+	if (test == 'l')
 	{
-		std::cout << "Congratulations! You guessed the number!" << std::endl;
+		letter_grade = true;
+	}
+	else if (test == 'n')
+	{
+		letter_grade = false;
+	}
+
+	if (letter_grade)
+	{
+		char Grade;
+		cout << "Enter your grade: ";
+		cin >> Grade;
+		cout << endl;
+
+		if (Grade == 'A' || Grade == 'B' || Grade == 'C' || Grade == 'a' || 
+			Grade == 'b' || Grade == 'c')
+		{
+			cout << "Congrats! You passed. \n\n";
+		}
+		else
+		{
+			cout << "That's sad. You failed. \n\n";
+		}
 	}
 	else
 	{
-		std::cout << "Sorry, your first guess was incorrect. Please guess again."<< std::endl;
+		double Grade_Number;
+		cout << "Enter your grade: ";
+		cin >> Grade_Number;
 
-
+		if (Grade_Number >= 70)
+		{
+			cout << "Congrats! You passed. \n\n";
+			if (Grade_Number > 100)
+			{
+				cout << "Warning: Grade is greater than 100. \n\n";
+			}
+		}
+		else
+		{
+			cout << "That's sad. You failed. \n\n";
+		}
 	}
 
 	return 0;
